@@ -487,7 +487,8 @@
       "datasource": "prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "unit": "ms"
         },
         "overrides": []
       },
@@ -542,10 +543,10 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "http duration",
+      "title": "Response Time",
       "tooltip": {
         "shared": true,
-        "sort": 0,
+        "sort": 2,
         "value_type": "individual"
       },
       "type": "graph",
@@ -559,7 +560,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:56",
-          "format": "short",
+          "format": "ms",
           "label": null,
           "logBase": 2,
           "max": null,
@@ -570,7 +571,7 @@
           "$$hashKey": "object:57",
           "format": "short",
           "label": null,
-          "logBase": 1,
+          "logBase": 2,
           "max": null,
           "min": null,
           "show": true
