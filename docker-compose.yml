@@ -23,7 +23,7 @@ services:
       - 9090:9090
     links:
       - ping:ping
-      - speedtest:speedtest
+      - speedtest-exporter:speedtest-exporter
     networks:
       - back-tier
 
@@ -57,15 +57,15 @@ services:
     networks:
       - back-tier
 
-  speedtest:
+  speedtest-exporter:
     tty: true
     stdin_open: true
     expose:
-      - 9696
+      - 9798
     ports:
-      - 9696:9696
-    image: stefanwalther/speedtest-exporter
-    restart: always
+      - 9798:9798
+    image: miguelndecarvalho/speedtest-exporter
+    restart: unless-stopped
     networks:
       - back-tier
 
