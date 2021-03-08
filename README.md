@@ -1,19 +1,11 @@
 
 # A Docker Stack which Monitors your home network
-Here's a quick start to stand-up a Docker [Prometheus](http://prometheus.io/) stack containing Prometheus, Grafana with  [blackbox-exporter](https://github.com/prometheus/blackbox_exporter) and [speedtest-exporter](https://github.com/stefanwalther/speedtest-exporter) to collect and graph home network connections and speed.
+Here's a quick start to stand-up a Docker [Prometheus](http://prometheus.io/) stack containing Prometheus, Grafana with  [blackbox-exporter](https://github.com/prometheus/blackbox_exporter) and [speedtest-exporter](https://github.com/miguelndecarvalho/speedtest-exporter) to collect and graph home network connections and speed.
 
 ## Pre-requisites
 Before we get started installing the Prometheus stack. Ensure you install the latest version of docker and [docker-compose](https://docs.docker.com/compose/install/) on your Docker host machine. This has been tested with Docker for Mac and Synology and it works.
 
 # Quick Start
-
-If on Mac run this:
-
-```
-git clone https://github.com/RebootfixesAll/internet-monitoring && cd internet-monitoring/prometheus && docker-compose up && open http://localhost:3030/d/o9mIe_Aik/internet-connection
-```
-
-otherwise:
 
 ```
 git clone https://github.com/RebootfixesAll/internet-monitoring
@@ -26,7 +18,7 @@ Goto [http://localhost:3030/d/speedtest/network-speed](http://localhost:3030/d/s
 ## Configuration
 To change what hosts you ping you change the `targets` section in [/prometheus/pinghosts.yaml](./prometheus/pinghosts.yaml) file.
 
-For speedtest the only relevant configuration is how often you want the check to happen. It is at 5 minutes by default which might be too much if you have limit on downloads. This is changed by editing `scrape_interval` under `speedtest` in [/prometheus/prometheus.yml](./prometheus/prometheus.yml).
+For speedtest the only relevant configuration is how often you want the check to happen. It is at 15 minutes by default. This is changed by editing `scrape_interval` under `speedtest-exporter` in [/prometheus/prometheus.yml](./prometheus/prometheus.yml).
 
 
 Once configurations are done let's start it up. From the /prometheus project directory run the following command:
