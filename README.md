@@ -21,7 +21,7 @@ cd internet-monitoring/prometheus
 docker-compose up
 ```
 
-Goto [http://localhost:3030/d/o9mIe_Aik/internet-connection](http://localhost:3030/d/o9mIe_Aik/internet-connection) (change `localhost` to your docker host ip/name).
+Goto [http://localhost:3030/d/speedtest/network-speed](http://localhost:3030/d/speedtest/network-speed) (change `localhost` to your docker host ip/name).
 
 ## Configuration
 To change what hosts you ping you change the `targets` section in [/prometheus/pinghosts.yaml](./prometheus/pinghosts.yaml) file.
@@ -42,7 +42,7 @@ password - wonka (Password is stored in the `config.monitoring` env file)
 
 The DataSource and Dashboard for Grafana are automatically provisioned. 
 
-If all works it should be available at http://localhost:3030/d/o9mIe_Aik/internet-connection - if no data shows up try change the timeduration to something smaller.
+If all works it should be available at http://localhost:3030/d/speedtest/network-speed - if no data shows up try change the timeduration to something smaller.
 
 <center><img src="images/dashboard.png" width="4600" heighth="500"></center>
 
