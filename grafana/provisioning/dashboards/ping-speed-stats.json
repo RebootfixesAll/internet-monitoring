@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 1,
   "links": [],
   "panels": [
     {
@@ -196,11 +196,11 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 12,
+        "w": 6,
         "x": 12,
         "y": 0
       },
-      "id": 12,
+      "id": 17,
       "interval": null,
       "links": [],
       "maxDataPoints": 100,
@@ -224,11 +224,82 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "Ping (MS)",
+          "legendFormat": "Ping (ms)",
           "refId": "A"
         }
       ],
       "title": "Ping",
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "max": 30,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 25
+              },
+              {
+                "color": "#d44a3a",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "expr": "speedtest_jitter_latency_milliseconds",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Jitter",
       "type": "gauge"
     },
     {
@@ -333,8 +404,22 @@
         "colorScheme": "interpolateGnYlRd",
         "defaultColor": "#757575",
         "exponent": 0.5,
-        "mode": "spectrum",
-        "thresholds": []
+        "min": -32,
+        "mode": "discrete",
+        "thresholds": [
+          {
+            "$$hashKey": "object:115",
+            "color": "#37872D",
+            "tooltip": "OK",
+            "value": "1"
+          },
+          {
+            "$$hashKey": "object:128",
+            "color": "#C4162A",
+            "tooltip": "Timeout",
+            "value": "0"
+          }
+        ]
       },
       "datasource": "prometheus",
       "fieldConfig": {
@@ -371,7 +456,7 @@
           "refId": "A"
         }
       ],
-      "title": "Panel Title",
+      "title": "Status Map",
       "tooltip": {
         "extraInfo": "",
         "freezeOnClick": true,
@@ -540,6 +625,6 @@
   },
   "timezone": "browser",
   "title": "Network Speed",
-  "uid": "speedtest",
-  "version": 8
+  "uid": "speettest",
+  "version": 1
 }
