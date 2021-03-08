@@ -27,14 +27,11 @@ scrape_configs:
     static_configs:
          - targets: ['localhost:9090']
 
-
-  - job_name: 'speedtest'
-    metrics_path: /metrics
+  - job_name: 'speedtest-exporter'
     scrape_interval: 15m
-    scrape_timeout: 60s # running speedtest needs time to complete
-    
+    scrape_timeout: 1m
     static_configs:
-      - targets: ['speedtest:9696']
+      - targets: ['speedtest-exporter:9798']
 
   - job_name: 'ping'
     metrics_path: /probe
