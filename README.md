@@ -3,25 +3,14 @@
 Here's a quick start to stand-up a Docker [Prometheus](http://prometheus.io/) stack containing Prometheus, Grafana with  [blackbox-exporter](https://github.com/prometheus/blackbox_exporter) and [speedtest-exporter](https://github.com/miguelndecarvalho/speedtest-exporter) to collect and graph home network connections and speed.
 
 ## Pre-requisites
-Before we get started installing the Prometheus stack. Ensure you install the latest version of docker and [docker-compose](https://docs.docker.com/compose/install/) on your Docker host machine. This has been tested with Docker for Mac and Synology and it works.
-
-# Quick Start
-
-```
-git clone https://github.com/RebootfixesAll/internet-monitoring
-cd internet-monitoring/prometheus
-docker-compose up
-```
-
-Goto [http://localhost:3030/d/speedtest/network-speed](http://localhost:3030/d/speedtest/network-speed) (change `localhost` to your docker host ip/name).
+Before we get started installing the Prometheus stack. Ensure you install the latest version of docker and [docker-compose](https://docs.docker.com/compose/install/) on your Docker host machine. This has been tested with Docker for Fedora 32 and it works.
 
 ## Configuration
 To change what hosts you ping you change the `targets` section in [/prometheus/pinghosts.yaml](./prometheus/pinghosts.yaml) file.
 
 For speedtest the only relevant configuration is how often you want the check to happen. It is at 15 minutes by default. This is changed by editing `scrape_interval` under `speedtest-exporter` in [/prometheus/prometheus.yml](./prometheus/prometheus.yml).
 
-Password is stored in the `config.monitoring` env file
-
+Password is set in the `config.monitoring` env file
 
 Once configurations are done let's start it up. From the /prometheus project directory run the following command:
 
