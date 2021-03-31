@@ -1,6 +1,5 @@
 - targets:  # url;humanname;routing;switch
     - http://google.com;google.com;external;internetbox
     - http://github.com;github.com;external;internetbox
-    - https://1.1.1.1;cloudfalre;external;internetbox
     - http://192.168.1.1;router;local;internetbox
 
