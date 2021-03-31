@@ -20,6 +20,8 @@ To change what hosts you ping you change the `targets` section in [/prometheus/p
 
 For speedtest the only relevant configuration is how often you want the check to happen. It is at 15 minutes by default. This is changed by editing `scrape_interval` under `speedtest-exporter` in [/prometheus/prometheus.yml](./prometheus/prometheus.yml).
 
+Password is stored in the `config.monitoring` env file
+
 
 Once configurations are done let's start it up. From the /prometheus project directory run the following command:
 
